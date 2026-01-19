@@ -1,9 +1,9 @@
-import './App.css'
+import Home from './component/Home.jsx'
 
 function App() {
   return (
     <>
-      <h1>El Pie Castillo</h1>
+      <Home />
     </>
   )
 }

@@ -2,7 +2,7 @@ import heroImage from "../assets/ElPieCastillo-Hero.jpg"
 
 const Hero = () => {
   return (
-    <section className="relative isolate overflow-hidden text-white max-h-50vh">
+    <section id="home" className="relative isolate overflow-hidden text-white max-h-50vh">
       <div
         className="absolute inset-0 hero-bg"
         style={{ backgroundImage: `url(${heroImage})` }}

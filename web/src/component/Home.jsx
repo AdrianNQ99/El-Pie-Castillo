@@ -6,8 +6,12 @@ const Home = () => {
   return (
     <div>
       <Navbar />
-      <Hero />
-      <About />
+      <section className="min-h-screen">
+        <div className="flex min-h-screen flex-col">
+          <Hero />
+          <About />
+        </div>
+      </section>
       {/*
         <Menu/>
         <Gallery/>

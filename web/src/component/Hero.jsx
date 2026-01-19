@@ -2,7 +2,7 @@ import heroImage from "../assets/ElPieCastillo-Hero.jpg"
 
 const Hero = () => {
   return (
-    <section id="home" className="relative isolate overflow-hidden text-white max-h-50vh">
+    <section id="home" className="relative isolate flex-[13] overflow-hidden text-white">
       <div
         className="absolute inset-0 hero-bg"
         style={{ backgroundImage: `url(${heroImage})` }}
@@ -10,7 +10,7 @@ const Hero = () => {
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/90" aria-hidden="true" />
 
-      <div className="relative mx-auto flex min-h-screen max-w-6xl flex-col justify-center gap-10 px-6 py-20 lg:py-28">
+      <div className="relative mx-auto flex h-full max-w-6xl flex-col justify-center gap-10 px-6 py-16 lg:py-20">
         <div className="max-w-2xl">
           <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white/90">
             Cocina francesa artesanal

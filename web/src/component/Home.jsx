@@ -1,10 +1,12 @@
-import Hero from "./Hero"
+import Hero from "./Hero";
+import Navbar from "./Navbar";
 
 const Home = () => {
   return (
     <div>
-        <Hero/>
-        {/*<About/>
+      <Navbar />
+      <Hero />
+      {/*<About/>
         <Menu/>
         <Gallery/>
         <Reservation/>
@@ -12,7 +14,7 @@ const Home = () => {
         <Footer/>
         */}
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

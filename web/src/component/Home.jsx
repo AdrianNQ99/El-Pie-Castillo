@@ -1,6 +1,7 @@
 import Hero from "./Hero";
 import Navbar from "./Navbar";
 import About from "./About";
+import Menu from "./Menu";
 
 const Home = () => {
   return (
@@ -12,8 +13,8 @@ const Home = () => {
           <About />
         </div>
       </section>
+      <Menu />
       {/*
-        <Menu/>
         <Gallery/>
         <Reservation/>
         <Contact/>

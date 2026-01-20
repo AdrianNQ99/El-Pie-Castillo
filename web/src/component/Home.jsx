@@ -2,6 +2,7 @@ import Hero from "./Hero";
 import Navbar from "./Navbar";
 import About from "./About";
 import Menu from "./Menu";
+import Footer from "./Footer";
 
 const Home = () => {
   return (
@@ -18,8 +19,8 @@ const Home = () => {
         <Gallery/>
         <Reservation/>
         <Contact/>
-        <Footer/>
         */}
+      <Footer />
     </div>
   );
 };

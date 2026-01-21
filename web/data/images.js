@@ -1,4 +1,4 @@
-const restaurantImages = [
+export const restaurantImages = [
     {
       id: 1,
       src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80",

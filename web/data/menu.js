@@ -1,4 +1,4 @@
-const menuCategories = [
+export const menuCategories = [
   {
     category: "Entrantes",
     items: [

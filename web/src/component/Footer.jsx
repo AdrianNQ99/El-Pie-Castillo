@@ -3,7 +3,6 @@ const Footer = () => {
     <footer className="bg-black text-white">
       <div className="mx-auto max-w-6xl px-6 py-12 lg:py-16">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
-          {/* Brand Section */}
           <div className="lg:col-span-2">
             <h3 className="text-2xl font-semibold text-yellow-500">El Pie Castillo</h3>
             <p className="mt-4 max-w-md text-sm text-white/70">
@@ -46,7 +45,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Contact Info */}
           <div>
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-yellow-500">Contacto</h4>
             <ul className="space-y-3 text-sm text-white/70">
@@ -72,7 +70,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Hours */}
           <div>
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-yellow-500">Horario</h4>
             <ul className="space-y-2 text-sm text-white/70">
@@ -92,7 +89,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Bar */}
         <div className="mt-12 border-t border-white/10 pt-8">
           <div className="flex flex-col items-center justify-between gap-4 text-sm text-white/50 md:flex-row">
             <p>&copy; {new Date().getFullYear()} El Pie Castillo. Todos los derechos reservados.</p>

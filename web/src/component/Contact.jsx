@@ -15,9 +15,7 @@ const Contact = () => {
         </div>
 
         <div className="mt-12 grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:gap-12">
-          {/* Información de contacto */}
           <div className="space-y-8">
-            {/* Dirección */}
             <div className="rounded-xl border border-white/10 bg-white/5 p-6">
               <div className="flex items-start gap-4">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-yellow-600/10 text-yellow-500">
@@ -37,7 +35,6 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Teléfono */}
             <div className="rounded-xl border border-white/10 bg-white/5 p-6">
               <div className="flex items-start gap-4">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-yellow-600/10 text-yellow-500">
@@ -60,7 +57,6 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Email */}
             <div className="rounded-xl border border-white/10 bg-white/5 p-6">
               <div className="flex items-start gap-4">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-yellow-600/10 text-yellow-500">
@@ -83,7 +79,6 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Horarios */}
             <div className="rounded-xl border border-white/10 bg-white/5 p-6">
               <div className="flex items-start gap-4">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-yellow-600/10 text-yellow-500">
@@ -112,7 +107,6 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Mapa de Google Maps */}
           <div className="h-[500px] overflow-hidden rounded-xl border border-white/10 lg:h-auto">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1120.5771864885671!2d-1.5806319114435448!3d37.40234294619763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd64c93d104622b5%3A0x2ca555ab6c205c70!2sEl%20Pie%20Castillo!5e0!3m2!1ses!2ses!4v1743772488908!5m2!1ses!2ses"
@@ -128,7 +122,6 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Instrucciones de acceso */}
         <div className="mt-12 rounded-xl border border-yellow-600/30 bg-yellow-600/5 p-6">
           <div className="flex items-start gap-4">
             <svg className="mt-1 h-6 w-6 shrink-0 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -35,12 +35,6 @@ const Navbar = () => {
             Inicio
           </a>
           <a
-            href="#about"
-            className="text-white hover:text-yellow-600 transition"
-          >
-            Sobre nosotros
-          </a>
-          <a
             href="#menu"
             className="text-white hover:text-yellow-600 transition"
           >

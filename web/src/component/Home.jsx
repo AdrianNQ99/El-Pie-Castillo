@@ -2,6 +2,7 @@ import Hero from "./Hero";
 import Navbar from "./Navbar";
 import About from "./About";
 import Menu from "./Menu";
+import Gallery from "./Gallery";
 import Footer from "./Footer";
 
 const Home = () => {
@@ -15,8 +16,9 @@ const Home = () => {
         </div>
       </section>
       <Menu />
+      <Gallery />
       {/*
-        <Gallery/>
+        
         <Reservation/>
         <Contact/>
         */}

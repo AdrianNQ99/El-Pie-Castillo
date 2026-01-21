@@ -5,7 +5,6 @@ const Menu = () => {
   return (
     <section id="menu" className="bg-neutral-900 py-16 text-white lg:py-24">
       <div className="mx-auto max-w-6xl px-6">
-        {/* Header */}
         <div className="text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-yellow-600/30 bg-yellow-600/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-yellow-400">
             Nuestro Menú
@@ -18,7 +17,6 @@ const Menu = () => {
           </p>
         </div>
 
-        {/* Menu Categories */}
         <div className="mt-16 space-y-12">
           {menuCategories.map((section, idx) => (
             <div key={idx} className="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm">

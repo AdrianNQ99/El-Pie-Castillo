@@ -1,4 +1,4 @@
-import menuCategories from "../../data/menu.js";
+import menuCategories from "../data/menu.js";
 
 const Menu = () => {
   

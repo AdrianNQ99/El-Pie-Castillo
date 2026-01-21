@@ -1,4 +1,4 @@
-import restaurantImages from "../../data/images.js";
+import restaurantImages from "../data/images.js";
 
 const Gallery = () => {
 

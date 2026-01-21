@@ -30,4 +30,5 @@ export const restaurantImages = [
       alt: "Mesa preparada"
     }
   ];
-  export default restaurantImages;
+  
+export default restaurantImages;

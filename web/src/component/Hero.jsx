@@ -27,13 +27,13 @@ const Hero = () => {
 
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <a
-                href="reservation"
+                href="#reservation"
               className="inline-block rounded-md bg-yellow-600 px-5 py-3 text-center text-sm font-semibold text-white shadow-md transition hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2"
             >
               Reservar mesa
             </a>
             <a
-                href="menu"
+                href="#menu"
               className="inline-block rounded-md border border-white/30 px-5 py-3 text-center text-sm font-semibold text-white/90 backdrop-blur transition hover:border-white/60 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/60 focus:ring-offset-2"
             >
               Ver menú

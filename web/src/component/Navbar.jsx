@@ -40,6 +40,12 @@ const Navbar = () => {
           >
             Menú
           </a>
+          <a 
+          href="#gallery"
+          className="text-white hover:text-yellow-600 transition"
+          >
+            Galería
+          </a>
           <a
             href="#reservation"
             className="text-white hover:text-yellow-600 transition"

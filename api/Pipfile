@@ -4,10 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-flask = "*"
-flask-cors = "*"
-flask-sqlalchemy = "*"
-flask-admin = "*"
+django = "*"
 
 
 [dev-packages]
@@ -16,4 +13,4 @@ flask-admin = "*"
 python_version = "3.14"
 
 [scripts]
-start = "flask --app app run"
+start = "python manage.py runserver"

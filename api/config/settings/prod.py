@@ -3,7 +3,7 @@ import dj_database_url
 from .base import *
 
 DEBUG = False
-SECRET_KEY = os.environ.get('SECRET_KEY', 'fallback-key-change-this')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 ALLOWED_HOSTS = [
     os.environ.get('RENDER_EXTERNAL_URL', 'localhost'),

@@ -14,6 +14,8 @@ const Reservation = () => {
   const [status, setStatus] = useState({ type: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api';
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -66,7 +68,7 @@ const Reservation = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:8000/api/reservations/', {
+      const response = await fetch(`${API_BASE}/reservations/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

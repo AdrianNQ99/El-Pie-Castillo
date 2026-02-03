@@ -5,11 +5,13 @@ const Menu = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api';
+
   useEffect(() => {
     const fetchMenu = async () => {
       try {
-        console.log('Fetching menu from http://localhost:8000/api/menu/');
-        const response = await fetch('http://localhost:8000/api/menu/');
+        console.log('Fetching menu from', `${API_BASE}/menu/`);
+        const response = await fetch(`${API_BASE}/menu/`);
         console.log('Response status:', response.status);
         if (!response.ok) {
           throw new Error(`Failed to fetch menu: ${response.status} ${response.statusText}`);

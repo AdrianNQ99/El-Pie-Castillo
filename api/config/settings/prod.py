@@ -8,6 +8,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'fallback-key-change-this')
 ALLOWED_HOSTS = [
     os.environ.get('RENDER_EXTERNAL_URL', 'localhost'),
     'el-pie-castillo.vercel.app',
+    'el-pie-castillo.onrender.com',
 ]
 
 # Database

@@ -26,5 +26,6 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # CORS settings if needed
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
+    "https://el-pie-castillo.vercel.app",
     os.environ.get('FRONTEND_URL', 'https://el-pie-castillo.vercel.app'),  
 ]

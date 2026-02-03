@@ -54,6 +54,58 @@ const Reservation = () => {
       return;
     }
 
+    // Prepare data for API
+    const reservationData = {
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      date: formData.date,
+      time: formData.time,
+      guests: formData.guests === "10+" ? 10 : parseInt(formData.guests),
+      message: formData.comments,
+    };
+
+    try {
+      const response = await fetch('http://localhost:8000/api/reservations/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(reservationData),
+      });
+
+      if (response.ok) {
+        setStatus({
+          type: "success",
+          message: "¡Reserva enviada con éxito! Nos pondremos en contacto contigo pronto.",
+        });
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          date: "",
+          time: "",
+          guests: "2",
+          comments: "",
+        });
+      } else {
+        const errorData = await response.json();
+        setStatus({
+          type: "error",
+          message: "Error al enviar la reserva. Por favor, inténtalo de nuevo.",
+        });
+        console.error('Reservation error:', errorData);
+      }
+    } catch (error) {
+      setStatus({
+        type: "error",
+        message: "Error de conexión. Por favor, verifica tu conexión a internet e inténtalo de nuevo.",
+      });
+      console.error('Network error:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const today = new Date().toISOString().split("T")[0];

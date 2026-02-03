@@ -1,6 +1,70 @@
-import menuCategories from "../data/menu.js";
+import { useState, useEffect } from "react";
 
 const Menu = () => {
+  const [menuCategories, setMenuCategories] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchMenu = async () => {
+      try {
+        console.log('Fetching menu from http://localhost:8000/api/menu/');
+        const response = await fetch('http://localhost:8000/api/menu/');
+        console.log('Response status:', response.status);
+        if (!response.ok) {
+          throw new Error(`Failed to fetch menu: ${response.status} ${response.statusText}`);
+        }
+        const dishes = await response.json();
+        console.log('Fetched dishes:', dishes);
+        
+        // Group dishes by category
+        const categoriesMap = {};
+        dishes.forEach(dish => {
+          if (!categoriesMap[dish.category_name]) {
+            categoriesMap[dish.category_name] = [];
+          }
+          categoriesMap[dish.category_name].push({
+            name: dish.name,
+            description: dish.description,
+            price: `${dish.price}€`
+          });
+        });
+        
+        const categories = Object.keys(categoriesMap).map(categoryName => ({
+          category: categoryName,
+          items: categoriesMap[categoryName]
+        }));
+        
+        setMenuCategories(categories);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchMenu();
+  }, []);
+
+  if (loading) {
+    return (
+      <section id="menu" className="bg-neutral-900 py-16 text-white lg:py-24">
+        <div className="mx-auto max-w-6xl px-6 text-center">
+          <p>Cargando menú...</p>
+        </div>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section id="menu" className="bg-neutral-900 py-16 text-white lg:py-24">
+        <div className="mx-auto max-w-6xl px-6 text-center">
+          <p>Error al cargar el menú: {error}</p>
+        </div>
+      </section>
+    );
+  }
   
   return (
     <section id="menu" className="bg-neutral-900 py-16 text-white lg:py-24">

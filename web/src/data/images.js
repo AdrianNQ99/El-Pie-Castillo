@@ -2,32 +2,32 @@ export const restaurantImages = [
     {
       id: 1,
       src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80",
-      alt: "Interior del restaurante"
+      alt: "Interior del restaurante El Pie Castillo con mesas de madera, sillas cómodas y iluminación cálida"
     },
     {
       id: 2,
       src: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80",
-      alt: "Ambiente acogedor"
+      alt: "Ambiente acogedor del restaurante con decoración elegante y vista al Castillo de San Juan"
     },
     {
       id: 3,
       src: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=800&q=80",
-      alt: "Plato principal"
+      alt: "Plato principal de boeuf bourguignon servido en el restaurante El Pie Castillo"
     },
     {
       id: 4,
       src: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80",
-      alt: "Vista del castillo"
+      alt: "Vista exterior del Castillo de San Juan de las Águilas desde el restaurante"
     },
     {
       id: 5,
       src: "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=800&q=80",
-      alt: "Detalle gastronómico"
+      alt: "Detalle gastronómico de un plato francés con hierbas frescas y presentación elegante"
     },
     {
       id: 6,
       src: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80",
-      alt: "Mesa preparada"
+      alt: "Mesa preparada con mantel blanco, vajilla fina y velas en el restaurante El Pie Castillo"
     }
   ];
   

@@ -10,14 +10,11 @@ const Menu = () => {
   useEffect(() => {
     const fetchMenu = async () => {
       try {
-        console.log('Fetching menu from', `${API_BASE}/menu/`);
         const response = await fetch(`${API_BASE}/menu/`);
-        console.log('Response status:', response.status);
         if (!response.ok) {
           throw new Error(`Failed to fetch menu: ${response.status} ${response.statusText}`);
         }
         const dishes = await response.json();
-        console.log('Fetched dishes:', dishes);
         
         // Group dishes by category
         const categoriesMap = {};

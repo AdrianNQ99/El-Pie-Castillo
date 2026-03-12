@@ -10,19 +10,24 @@ Este backend proporciona una API REST completa para gestionar el menú y las res
 
 - **Django 6.0.2**: Framework web Python
 - **Django REST Framework**: Construcción de APIs REST
-- **SQLite**: Base de datos para desarrollo
+- **PostgreSQL 16**: Base de datos
+- **Docker Compose**: Servicio local de base de datos
 - **django-cors-headers**: Manejo de CORS para frontend
 - **Python 3.8+**
 
 ## 📦 Instalación
 
 ### Prerrequisitos
+- Docker Desktop
 - Python 3.8 o superior
 - pip (gestor de paquetes de Python)
 
 ### Configuración del Entorno
 
 ```bash
+# Desde la raíz del proyecto, levantar PostgreSQL
+docker compose up -d
+
 # Navegar al directorio del backend
 cd api
 
@@ -34,6 +39,15 @@ python manage.py migrate
 
 # (Opcional) Crear superusuario para acceder al admin
 python manage.py createsuperuser
+```
+
+Antes de ejecutar Django, crea `.env` en la raíz del proyecto con estas variables:
+
+```env
+SECRET_KEY=tu_clave_larga_y_segura
+DATABASE_URL=postgres://dev:dev@localhost:5432/elpiecastillo
+DEBUG=True
+DJANGO_SETTINGS_MODULE=config.settings.dev
 ```
 
 ## 🔧 Uso
@@ -142,7 +156,7 @@ api/
 │       └── admin.py
 ├── manage.py              # Script de gestión de Django
 ├── requirements.txt       # Dependencias Python
-└── db.sqlite3            # Base de datos SQLite
+└── requirements.txt       # Dependencias Python
 ```
 
 ## 🧪 Modelos de Datos

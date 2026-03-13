@@ -7,6 +7,8 @@ import Reservation from "../component/Reservation";
 import Contact from "../component/Contact";
 import Footer from "../component/Footer";
 
+const restaurantSlug = import.meta.env.VITE_RESTAURANT_SLUG;
+
 const Home = () => {
   return (
     <div>
@@ -17,9 +19,9 @@ const Home = () => {
           <About />
         </div>
       </section>
-      <Menu />
+      <Menu restaurantSlug={restaurantSlug} />
       <Gallery />
-      <Reservation />
+      <Reservation restaurantSlug={restaurantSlug} />
       <Contact />
       <Footer />
     </div>

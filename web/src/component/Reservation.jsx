@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Reservation = () => {
+const Reservation = ({restaurantSlug}) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -68,7 +68,7 @@ const Reservation = () => {
     };
 
     try {
-      const response = await fetch(`${API_BASE}/reservations/`, {
+      const response = await fetch(`${API_BASE}/api/r/${restaurantSlug}/reservations/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

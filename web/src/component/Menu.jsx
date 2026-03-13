@@ -1,21 +1,31 @@
 import { useState, useEffect } from "react";
+import { menuCategories as fallbackMenu } from "../data/menu";
+
+const FETCH_TIMEOUT_MS = 5000;
 
 const Menu = ({ restaurantSlug }) => {
   const [menuCategories, setMenuCategories] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [usingFallback, setUsingFallback] = useState(false);
 
   const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
 
   useEffect(() => {
     const fetchMenu = async () => {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+
       try {
-        const response = await fetch(`${API_BASE}/api/r/${restaurantSlug}/menu/`);
+        const response = await fetch(`${API_BASE}/api/r/${restaurantSlug}/menu/`, {
+          signal: controller.signal,
+        });
+        clearTimeout(timeoutId);
+
         if (!response.ok) {
-          throw new Error(`Failed to fetch menu: ${response.status} ${response.statusText}`);
+          throw new Error(`${response.status} ${response.statusText}`);
         }
         const dishes = await response.json();
-        
+
         // Group dishes by category
         const categoriesMap = {};
         dishes.forEach(dish => {
@@ -28,15 +38,17 @@ const Menu = ({ restaurantSlug }) => {
             price: `${dish.price}€`
           });
         });
-        
+
         const categories = Object.keys(categoriesMap).map(categoryName => ({
           category: categoryName,
           items: categoriesMap[categoryName]
         }));
-        
+
         setMenuCategories(categories);
-      } catch (err) {
-        setError(err.message);
+      } catch {
+        clearTimeout(timeoutId);
+        setMenuCategories(fallbackMenu);
+        setUsingFallback(true);
       } finally {
         setLoading(false);
       }
@@ -55,16 +67,6 @@ const Menu = ({ restaurantSlug }) => {
     );
   }
 
-  if (error) {
-    return (
-      <section id="menu" className="bg-neutral-900 py-16 text-white lg:py-24">
-        <div className="mx-auto max-w-6xl px-6 text-center">
-          <p>Error al cargar el menú: {error}</p>
-        </div>
-      </section>
-    );
-  }
-  
   return (
     <section id="menu" className="bg-neutral-900 py-16 text-white lg:py-24">
       <div className="mx-auto max-w-6xl px-6">

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const Menu = () => {
+const Menu = ({ restaurantSlug }) => {
   const [menuCategories, setMenuCategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -10,7 +10,7 @@ const Menu = () => {
   useEffect(() => {
     const fetchMenu = async () => {
       try {
-        const response = await fetch(`${API_BASE}/menu/`);
+        const response = await fetch(`${API_BASE}/api/r/${restaurantSlug}/menu/`);
         if (!response.ok) {
           throw new Error(`Failed to fetch menu: ${response.status} ${response.statusText}`);
         }

@@ -5,6 +5,6 @@ from django.views.generic import RedirectView
 urlpatterns = [
     path('', RedirectView.as_view(url='/admin/')),
     path("admin/", admin.site.urls),
-    path("menu/", include("config.apps.menu.urls")),
-    path("reservations/", include("config.apps.reservations.urls")),
+    path("api/r/<slug:restaurant_slug>/menu/", include("config.apps.menu.urls")),
+    path("api/r/<slug:restaurant_slug>/reservations/", include("config.apps.reservations.urls")),
 ]

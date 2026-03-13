@@ -1,6 +1,12 @@
 from django.db import models
 
+
 class Category(models.Model):
+    restaurant = models.ForeignKey(
+        'tenants.Restaurant',
+        on_delete=models.CASCADE,
+        related_name='categories',
+    )
     name = models.CharField(max_length=100)
     is_active = models.BooleanField(default=True)
 
@@ -9,6 +15,11 @@ class Category(models.Model):
 
 
 class Dish(models.Model):
+    restaurant = models.ForeignKey(
+        'tenants.Restaurant',
+        on_delete=models.CASCADE,
+        related_name='dishes',
+    )
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     name = models.CharField(max_length=150)
     description = models.TextField()

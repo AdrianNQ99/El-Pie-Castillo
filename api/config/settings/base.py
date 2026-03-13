@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'django_filters',
+    'config.apps.tenants',
     'config.apps.menu',
     'config.apps.reservations',
 ]

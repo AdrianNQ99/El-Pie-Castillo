@@ -1,25 +1,19 @@
 import { useState, useEffect } from "react";
+import { menuCategories as staticMenu } from "../data/menu";
 
 const Menu = () => {
-  const [menuCategories, setMenuCategories] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [menuCategories, setMenuCategories] = useState(staticMenu);
 
   const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
 
   useEffect(() => {
     const fetchMenu = async () => {
+      setLoading(true);
       try {
-        console.log('Fetching menu from', `${API_BASE}/menu/`);
         const response = await fetch(`${API_BASE}/menu/`);
-        console.log('Response status:', response.status);
-        if (!response.ok) {
-          throw new Error(`Failed to fetch menu: ${response.status} ${response.statusText}`);
-        }
+        if (!response.ok) return;
         const dishes = await response.json();
-        console.log('Fetched dishes:', dishes);
-        
-        // Group dishes by category
+
         const categoriesMap = {};
         dishes.forEach(dish => {
           if (!categoriesMap[dish.category_name]) {
@@ -31,15 +25,15 @@ const Menu = () => {
             price: `${dish.price}€`
           });
         });
-        
+
         const categories = Object.keys(categoriesMap).map(categoryName => ({
           category: categoryName,
           items: categoriesMap[categoryName]
         }));
-        
-        setMenuCategories(categories);
-      } catch (err) {
-        setError(err.message);
+
+        if (categories.length > 0) setMenuCategories(categories);
+      } catch {
+        // API no disponible — se mantiene el menú estático
       } finally {
         setLoading(false);
       }
@@ -47,26 +41,6 @@ const Menu = () => {
 
     fetchMenu();
   }, []);
-
-  if (loading) {
-    return (
-      <section id="menu" className="bg-neutral-900 py-16 text-white lg:py-24">
-        <div className="mx-auto max-w-6xl px-6 text-center">
-          <p>Cargando menú...</p>
-        </div>
-      </section>
-    );
-  }
-
-  if (error) {
-    return (
-      <section id="menu" className="bg-neutral-900 py-16 text-white lg:py-24">
-        <div className="mx-auto max-w-6xl px-6 text-center">
-          <p>Error al cargar el menú: {error}</p>
-        </div>
-      </section>
-    );
-  }
   
   return (
     <section id="menu" className="bg-neutral-900 py-16 text-white lg:py-24">

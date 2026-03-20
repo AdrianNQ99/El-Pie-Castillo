@@ -11,10 +11,12 @@ ALLOWED_HOSTS = [
     'el-pie-castillo.onrender.com',
 ]
 
-# Database
+# Database — DATABASE_URL env var is required; no SQLite fallback in production
+if not os.environ.get('DATABASE_URL'):
+    raise ValueError("DATABASE_URL environment variable is required in production")
+
 DATABASES = {
     'default': dj_database_url.config(
-        default='sqlite:///db.sqlite3',
         conn_max_age=600,
         conn_health_checks=True,
     )
